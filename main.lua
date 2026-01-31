@@ -28,8 +28,8 @@ Starfield_bg = Starfield
 function init()
   simpleScale.setWindow(width,height,windowWidth,widthHeight, {fullscreen = fullscreen, resizable = true});  
   star = CelestialBody(Vector(windowWidth/2,widthHeight/2),250,{1,1,1})
-  planet = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0})
-  planet2 = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0})
+  planet = CelestialBody(Vector(windowWidth,widthHeight/2),5,{0,0,0})
+  planet2 = CelestialBody(Vector(windowWidth,widthHeight/2),5,{0,0,0})
   starbg = Starfield(0.5,windowWidth,widthHeight,1)
   table.insert(visibleObjects,starbg)
   table.insert(visibleObjects,star)
