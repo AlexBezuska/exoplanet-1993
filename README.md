@@ -1,6 +1,9 @@
 # exoplanet-1993
 
-a game by: name, Glenn Essex, EJ Curtis, name and fufroom (Alex Bezuska)
+
+a game by: name, Glenn Essex, EJ Curtis, Wren Slaven and fufroom (Alex Bezuska)
+
+
 
 ## VS Code autocomplete
 
