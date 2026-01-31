@@ -11,7 +11,9 @@ celestial_body = Class {}
    function  celestial_body:transit(x, y, transit_speed, dt)
         -- lerp to target(x,y) based speed
         self.x = lerp(self.x, x + 100, transit_speed * dt * 0.01)
+        self.y = self.y + y
         local px = self.x
+        --simple wrap 
         if self.x > x-self.radius then
         self.x = -100
         end
@@ -28,6 +30,6 @@ celestial_body = Class {}
          lg.circle("fill",self.x,self.y,self.radius * 1.1)
          lg.setColor(r, g, b,a)
          lg.circle("fill",  self.x,  self.y, self.radius)
-      
+
     end;
 
