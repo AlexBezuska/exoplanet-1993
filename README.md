@@ -1,6 +1,9 @@
 # exoplanet-1993
 
-a game by: Imran Bharadia, Glenn Essex, Wren Slaven, name and fufroom (Alex Bezuska)
+
+a game by: Imran Bharadia, Glenn Essex, Wren Slaven, EJ Curtis and fufroom (Alex Bezuska)
+
+
 
 ## VS Code autocomplete
 
