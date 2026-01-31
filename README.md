@@ -1,5 +1,7 @@
 # exoplanet-1993
 
+a game by: name, name, name, name and fufroom (Alex Bezuska)
+
 ## VS Code autocomplete
 
 - Lua Language Server (IntelliSense): https://marketplace.visualstudio.com/items?itemName=sumneko.lua
