@@ -18,20 +18,15 @@ function Starfield:generate_star_field()
             
             local color = { love.math.random(0.5,1.0 ), love.math.random(0.5,1.0),love.math.random(0.5,1.0), love.math.random(0.5,1.0)}
             table.insert(self.stars, {x = x + love.math.random(x), y = y + love.math.random(y),color=color})
-            
         end
     end
 end
 
 function Starfield:draw_star(lg, px, py)
-    
-   
-    
-    
     lg.circle("fill",px,py,self.seed_radius)
 end
 
-function Starfield:draw(lg)
+function Starfield:draw()
     for _, star in ipairs(self.stars) do
        -- print(star.color[1])
        lg.setColor( star.color)
@@ -40,3 +35,5 @@ function Starfield:draw(lg)
     
     end
 end
+
+return Starfield
