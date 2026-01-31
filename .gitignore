@@ -1,0 +1,16 @@
+# LÖVE
+*.love
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Lua / misc
+*.log
+
+# LÖVE save data (macOS)
+# You can ignore saves, but often you may want to keep them out of git.
+# LÖVE stores saves outside the repo; these patterns are mainly for stray files.
