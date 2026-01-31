@@ -6,12 +6,11 @@
 - Love2D snippets/helpers: https://marketplace.visualstudio.com/items?itemName=pixelbyte-studios.pixelbyte-love2d
 
 
-## Run
+## Build a .love (zip)
 
 
-
+If you have Git installed, this creates a clean zip without `.git/` and works the same on macOS/Linux/Windows:
 
 ```sh
-zip -9 -r exoplanet-1993.love . -x ".git/*" -x ".gitignore" -x "*.love"
+git archive --format=zip --output exoplanet-1993.love HEAD
 ```
-
