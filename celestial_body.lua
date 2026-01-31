@@ -5,23 +5,22 @@ celestial_body = Class {}
 
      function celestial_body:init(pos, body_radius,color)
         self.pos =Vector(pos.x,pos.y)
-       
+        self.start = Vector(pos.x,pos.y)
         self.radius = body_radius
         self.color = color
     end;
 
    function  celestial_body:transit(target, transit_speed, dt)
         -- lerp to target(x,y) based speed
-        local dir = self.pos - target 
+        local dir = self.start - target 
         dir = dir:rotated(math.rad(math.atan2(dir.y,dir.x)))
         self.pos.x = lerp(self.pos.x, dir.x, transit_speed * dt * 0.01)
-        self.pos.y = lerp(self.pos.y, dir.y, transit_speed * dt * 0.01)
+        self.pos.y =  lerp(self.pos.y,dir.y, transit_speed * dt * 0.01)
 
-         print(dir)
+
         --simple wrap 
-        self.pos.x = wrap_number(self.pos.x,0,windowWidth -1)
-       
-       
+          self.pos = wrap_vector(self.pos,Vector(windowWidth,widthHeight),self.start)
+          print(self.pos)
     end;
 
      function celestial_body: reset()

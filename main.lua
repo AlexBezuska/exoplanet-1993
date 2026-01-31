@@ -19,19 +19,22 @@ Starfield = require "starfield"
 visibleObjects = {}
 local star
 local planet
+local planet2
 local starbg
 
-simulationSpeedMultiplier = 0.05
+simulationSpeedMultiplier = 0.5
 Starfield_bg = Starfield
 
 function init()
   simpleScale.setWindow(width,height,windowWidth,widthHeight, {fullscreen = fullscreen, resizable = true});  
   star = CelestialBody(Vector(windowWidth/2,widthHeight/2),250,{1,1,1})
   planet = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0})
+  planet2 = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0})
   starbg = Starfield(0.5,windowWidth,widthHeight,1)
   table.insert(visibleObjects,starbg)
   table.insert(visibleObjects,star)
   table.insert(visibleObjects,planet)
+  table.insert(visibleObjects,planet2)
 end
 
 function love.load()
@@ -51,7 +54,8 @@ function love.update(dt)
 end
 
 function CelestialBodyMovements(dt)
-  planet:transit(Vector(windowWidth, 100) ,-45, dt * simulationSpeedMultiplier)
+  planet:transit(Vector(windowWidth, 245) ,-40, dt * simulationSpeedMultiplier)
+  planet2:transit(Vector(windowWidth,-15),-36,dt * simulationSpeedMultiplier)
 end
 
 

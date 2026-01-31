@@ -10,3 +10,17 @@ function wrap_number(value, min_val, max_val)
     return mod_result + min_val
 end
 --add any kind of math helpers
+function wrap_vector(value, max_val,start_val)
+    local vector = value
+    if vector.x > max_val.x then
+    
+        vector.x = start_val.x
+   
+elseif vector.y > max_val.y then
+    
+        vector.y =start_val.y
+    end
+  
+   
+    return vector
+end
