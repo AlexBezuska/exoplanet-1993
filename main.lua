@@ -11,8 +11,9 @@ function love.update(dt)
 end
 
 function love.draw()
-	love.graphics.print("Window: " .. love.graphics.getWidth() .. "x" .. love.graphics.getHeight(), 16, love.graphics.getHeight() - 48)
-	love.graphics.print("FPS: " .. love.timer.getFPS(), 16, love.graphics.getHeight() - 28)
+  lg.setBackgroundColor(200,100,0)
+	lg.print("Window: " .. lg.getWidth() .. "x" .. lg.getHeight(), 16, lg.getHeight() - 48)
+	lg.print("FPS: " .. love.timer.getFPS(), 16, lg.getHeight() - 28)
 end
 
 function love.keypressed(key)
