@@ -8,6 +8,8 @@ height = 600
 windowWidth = 800
 widthHeight = 600
 
+desktopPurple = {130/255,53/255,109/255}
+
 require "desk"
 require "computer"
 require "email"

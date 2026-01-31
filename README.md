@@ -5,6 +5,13 @@ a game by: Imran Bharadia, Glenn Essex, Wren Slaven, EJ Curtis and fufroom (Alex
 
 
 
+## Color Pallete:
+
+PC Desktop background:  Dark Purple. RGB (130,53,109)
+
+
+---
+
 ## VS Code autocomplete
 
 - Lua Language Server (IntelliSense): https://marketplace.visualstudio.com/items?itemName=sumneko.lua
