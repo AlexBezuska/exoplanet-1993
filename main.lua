@@ -2,6 +2,7 @@ lg = love.graphics
 lg.setDefaultFilter("nearest", "nearest")
 Gamestate = require "libs.gamestate"
 require "libs.simpleScale"
+Vector = require 'libs.vector'
 width = 800
 height = 600
 windowWidth = 800
@@ -25,8 +26,8 @@ Starfield_bg = Starfield
 
 function init()
   simpleScale.setWindow(width,height,windowWidth,widthHeight, {fullscreen = fullscreen, resizable = true});  
-  star = CelestialBody(windowWidth/2,widthHeight/2,250,{1,1,1})
-  planet = CelestialBody(0,widthHeight/2,5,{0,0,0})
+  star = CelestialBody(Vector(windowWidth/2,widthHeight/2),250,{1,1,1})
+  planet = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0})
   starbg = Starfield(0.5,windowWidth,widthHeight,1)
   table.insert(visibleObjects,starbg)
   table.insert(visibleObjects,star)
@@ -50,7 +51,7 @@ function love.update(dt)
 end
 
 function CelestialBodyMovements(dt)
-  planet:transit(windowWidth, math.sin(love.timer.getTime()) * 1.2 * dt,45, dt * simulationSpeedMultiplier)
+  planet:transit(Vector(windowWidth, 100) ,-45, dt * simulationSpeedMultiplier)
 end
 
 

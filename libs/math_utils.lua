@@ -1,11 +1,12 @@
 lerp = function(a, b, t)
     return a + (b - a) * t
 end
-wrap = function(a, max, min)
-    if a > max then
-        a = min
-    end
-    return a
-
+--Googled This
+function wrap_number(value, min_val, max_val)
+    local range = max_val - min_val
+  
+    local mod_result = (value - min_val) % range
+ 
+    return mod_result + min_val
 end
 --add any kind of math helpers
