@@ -1,8 +1,5 @@
--- conf.lua
--- Project configuration for LÖVE.
-
 function love.conf(t)
-	t.identity = "exoplanet-1993" -- save directory name
+	t.identity = "exoplanet-1993"
 	t.version = "11.5"
 	t.console = false
 

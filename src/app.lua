@@ -1,6 +1,3 @@
--- src/app.lua
--- Put your game/app state here.
-
 local App = {}
 
 function App.new()

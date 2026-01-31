@@ -1,6 +1,3 @@
--- main.lua
--- Minimal LÖVE 2D stub project.
-
 local Game = require("src.app")
 
 local gameState
@@ -22,7 +19,6 @@ local function clamp(x, lo, hi)
 end
 
 local function get_dt_s(dt)
-	-- Protect against huge dt spikes (tab out, debugger stop, etc.)
 	return clamp(dt, 0, 1 / 15)
 end
 
@@ -43,7 +39,6 @@ function love.update(dt)
 	dt = get_dt_s(dt)
 	Game.update(gameState, dt)
 
-	-- Example: hold Escape to quit
 	if love.keyboard.isDown("escape") then
 		love.event.quit()
 	end
