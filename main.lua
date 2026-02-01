@@ -8,8 +8,10 @@ height = 600
 windowWidth = 800
 widthHeight = 600
 
+
 desktopPurple = {130/255,53/255,109/255}
 
+require "titlescreen"
 require "desk"
 require "computer"
 require "email"
@@ -42,7 +44,7 @@ end
 function love.load()
   init()
   Gamestate.registerEvents()
-  Gamestate.switch(desk)
+  Gamestate.switch(titlescreen)
 end
 
 function love.update(dt)
@@ -70,7 +72,7 @@ function love.draw()
 end
 
 function love.keypressed(key)
-  if key == "1" then
+  if key == "1" or key == "return" then
     Gamestate.switch(desk)
   elseif key == "2" then
     Gamestate.switch(computer)
@@ -80,5 +82,7 @@ function love.keypressed(key)
     Gamestate.switch(telescope)
   elseif key == "5" then
     Gamestate.switch(archive)
+  elseif key == "home" then
+    Gamestate.switch(titlescreen)
   end
 end
