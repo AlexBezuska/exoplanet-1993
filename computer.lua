@@ -12,9 +12,15 @@ function computer:init()
 
   self.telescopeClick = ClickableObject(92, 300, 70, 70)
   self.photosClick = ClickableObject(88, 100, 70, 70)
+<<<<<<< HEAD
   self.emailClick = ClickableObject(85, 200, 70, 70 )
   self.trashClick = ClickableObject(102, 400, 70, 70)
   self.backButton = ClickableObject(25, 500, 70,70)
+=======
+  self.emailClick = ClickableObject(85, 200, 70, 70)
+  self.trashClick = ClickableObject(102, 400, 70, 70)
+  self.monitorToggle = ClickableObject(25, 500, 70,70)
+>>>>>>> 7ca594d (stuff)
   Telescope = false
   Photos = false
   Email = false
@@ -31,12 +37,22 @@ function computer:update(dt)
   time1993 = os.date("%H:%M:%S")
   local mousepointx = love.mouse.getX()
   local mousepointy = love.mouse.getY()
+<<<<<<< HEAD
+=======
+  
+ --if Monitor then
+>>>>>>> 7ca594d (stuff)
   Telescope = self.telescopeClick:update(mousepointx, mousepointy)
   Photos = self.photosClick:update(mousepointx, mousepointy)
   Email = self.emailClick:update(mousepointx, mousepointy)
   Trash = self.trashClick:update(mousepointx, mousepointy)
+<<<<<<< HEAD
 
 
+=======
+  
+ --end
+>>>>>>> 7ca594d (stuff)
 
   if Telescope then
     Gamestate.switch(telescope)
@@ -76,6 +92,7 @@ function computer:draw()
   drawDesktopIcon(iconEmailImage, 85, 200, "eMail")
   drawDesktopIcon(iconTelescopeImage, 92, 300, "Telescope-view")
   drawDesktopIcon(iconTrashImage, 102, 400, "Trash")
+<<<<<<< HEAD
 
   -- lg.rectangle("line",self.telescopeClick.x,self.telescopeClick.y,self.telescopeClick.width,self.telescopeClick.height)
   -- lg.rectangle("line",self.photosClick.x,self.photosClick.y,self.photosClick.width,self.photosClick.height)
@@ -85,6 +102,27 @@ function computer:draw()
   lg.setColor(1,1,1)
   lg.draw( backButtonImage, 25, 500)
 
+=======
+  
+  lg.setColor(0, 0, 0)
+ 
+  lg.setColor(1, 0, 0)
+  lg.rectangle("fill", 25, 500, 70, 70)
+  
+  lg.setColor(0,0,0)
+  if not Monitor then
+  --lg.rectangle("fill", 50, 25, windowWidth - 100, windowHeight - 50)
+  end
+  lg.setColor(1,0,0)
+  lg.rectangle("fill", 25, 500, 70,70)
+  
+  --[[
+  lg.rectangle("line",self.telescopeClick.x,self.telescopeClick.y,self.telescopeClick.width,self.telescopeClick.height)
+  lg.rectangle("line",self.photosClick.x,self.photosClick.y,self.photosClick.width,self.photosClick.height)
+  lg.rectangle("line",self.emailClick.x,self.emailClick.y,self.emailClick.width,self.emailClick.height)
+  lg.rectangle("line",self.trashClick.x,self.trashClick.y,self.trashClick.width,self.trashClick.height)
+  ]]--
+>>>>>>> 7ca594d (stuff)
 
   simpleScale.unSet()
 end

@@ -70,4 +70,5 @@ local emails = {
         body = "I've rewritten this email so many times. I've decided that this time I'm going to just click send as soon as I stop typing and whatever I wrote is what you get. I guess in a way that's what you did. The only way to break the pattern is to push all the way through, right?\nBut this is different. Because unlike you, I'm not running from anything. I'm running towards. I've been asking myself why I seem to care more about you than you care about yourself. And I think it's because I care about you more than I care about myself. And in a way that's unfair to both of us. Unlike you, I can't run away from everything. But I can stop "
     }
 }
+
 return emails
