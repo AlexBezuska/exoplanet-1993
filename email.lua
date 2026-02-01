@@ -63,9 +63,25 @@ function email:draw()
   lg.printf(limitToChars(self.emails.email2.subject,21), 185, 205, 200, "left")
 
   lg.printf(self.emails.email3.sender, 185, 230, 200, "left")
-  lg.printf(limitToChars(self.emails.email3.subject, 21), 185, 220, 200, "left")
+  lg.printf(self.emails.email3.subject, 185, 245, 200, "left")
 
-  
+  lg.printf(self.emails.email4.sender, 185, 270, 200, "left")
+  lg.printf(limitToChars(self.emails.email4.subject, 21), 185, 285, 200, "left")
+
+  lg.printf(self.emails.email5.sender, 185, 310, 200, "left")
+  lg.printf(limitToChars(self.emails.email5.subject, 21), 185, 325, 200, "left")
+
+  lg.printf(self.emails.email6.sender, 185, 350, 200, "left")
+  lg.printf(limitToChars(self.emails.email6.subject, 21), 185, 365, 200, "left")
+
+  lg.printf(self.emails.email7.sender, 185, 390, 200, "left")
+  lg.printf(self.emails.email7.subject, 185, 405, 200, "left")
+
+  lg.printf(self.emails.email8.sender, 185, 430, 200, "left")
+  lg.printf(self.emails.email8.subject, 185, 445, 200, "left")
+
+  lg.printf(self.emails.email9.sender, 185, 470, 200, "left")
+  lg.printf(self.emails.email9.subject, 185, 485, 150, "left")
   --window bar and close button text
   lg.setColor(1, 1, 1)
   lg.print("eMail", 185, 65, 0, 1.25, 1.25)
