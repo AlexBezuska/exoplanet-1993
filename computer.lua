@@ -1,6 +1,6 @@
 computer = {}
 require "libs.desktopIcon"
-
+computerClockFont = lg.newFont("fonts/FiraCode-Regular.ttf", 15)
 
 function computer:init()
   bezel = lg.newImage("images/screen-bezel.png")
@@ -48,6 +48,14 @@ function computer:draw()
   lg.setColor(desktopPurple)
   lg.rectangle("fill", 0, 0, windowWidth, windowHeight)
 
+
+  lg.setColor({0.3, 0.3, 0.3})
+  lg.rectangle("fill", 0, windowHeight - 100, windowWidth, 100)
+
+  lg.setFont(computerClockFont)
+  lg.setColor(1,1,1)
+  lg.print(date1993 .. " " .. time1993,windowWidth - 260,windowHeight - 90)
+  lg.setFont(defaultFont )
   lg.setColor(1, 1, 1)
   lg.draw(bezel, 0, 0)
 
