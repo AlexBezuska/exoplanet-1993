@@ -1,7 +1,15 @@
 computer = {}
+require "libs.desktopIcon"
+
 
 function computer:init()
-   bezel = lg.newImage("images/screen-bezel.png")
+  bezel = lg.newImage("images/screen-bezel.png")
+  iconPhotosImage = lg.newImage("images/icon-photos.png")
+  iconEmailImage = lg.newImage("images/icon-email.png")
+  iconTelescopeImage = lg.newImage("images/icon-photos.png")
+  iconTrashImage = lg.newImage("images/icon-trash.png")
+
+
 end
 
 function computer:enter()
@@ -26,8 +34,11 @@ function computer:draw()
   lg.setColor(screenSpace)
   lg.rectangle( "line", 80, 60, 640, 465)
 
-  lg.setColor(1,1,1)
-  lg.print("I am computer",90,90)
+
+  drawDesktopIcon(iconPhotosImage, 88, 100, "Photos")
+  drawDesktopIcon(iconEmailImage, 85, 200, "eMail")
+  drawDesktopIcon(iconTelescopeImage, 92, 300, "Telescope-view")
+  drawDesktopIcon(iconTrashImage, 102, 400, "Trash")
 
   simpleScale.unSet()
 end

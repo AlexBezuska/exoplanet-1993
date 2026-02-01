@@ -55,6 +55,11 @@ function love.update(dt)
 
 end
 
+function love.resize()
+  lg.setColor({0,0,0})
+  lg.rectangle( "fill", 0, 0, windowWidth, widthHeight)
+end
+
 function CelestialBodyMovements(dt)
   planet:transit(Vector(windowWidth, 245) ,-1, dt * simulationSpeedMultiplier)
   planet2:transit(Vector(windowWidth,-15),-0.4,dt * simulationSpeedMultiplier)
