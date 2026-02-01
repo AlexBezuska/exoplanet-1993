@@ -9,6 +9,7 @@ drawPaddedLabel = require "libs.paddedLabel"
 ClickableObject = require "libs.clickableObject"
 
 lg.setDefaultFilter("nearest", "nearest")
+random = love.math.random
 Gamestate = require "libs.gamestate"
 require "libs.simpleScale"
 Vector = require 'libs.vector'
@@ -30,22 +31,49 @@ require "telescope"
 CelestialBody = require "celestial_body"
 Starfield = require "starfield"
 visibleObjects = {}
-transitObjectImages = {
-  
-  }
 
 local star
 local planet
-local planet2
-
 
 simulationSpeedMultiplier = 0.1
 Starfield_bg = Starfield
+TransitImages = {
+  lg.newImage("images/realtime/transit-object-airplane.png"),
+  lg.newImage("images/realtime/transit-object-big-branch.png"),
+  lg.newImage("images/realtime/transit-object-box1.png"),
+  lg.newImage("images/realtime/transit-object-box2.png"),
+  lg.newImage("images/realtime/transit-object-clock.png"),
+  lg.newImage("images/realtime/transit-object-computer.png"),
+  lg.newImage("images/realtime/transit-object-egg.png"),
+  lg.newImage("images/realtime/transit-object-letter.png"),
+  lg.newImage("images/realtime/transit-object-little-thing.png"),
+  lg.newImage("images/realtime/transit-object-lock.png"),
+  lg.newImage("images/realtime/transit-object-notebook.png"),
+  lg.newImage("images/realtime/transit-object-questionmark.png"),
+  lg.newImage("images/realtime/transit-object-small-branch.png"),
+  lg.newImage("images/realtime/transit-object-spacestation.png"),
+  lg.newImage("images/realtime/transit-object-stick1.png"),
+  }
+  
+function createTransitObject(index)
+  local img = TransitImages[index]
+  local startVector = Vector(0,windowHeight/2)
+  local targetVector = Vector(windowWidth, 0)
+  local size = random(1,5)
+  local speed = random(5,40)
+  local color = {0,0,0.08}
+  local transitObject = CelestialBody(img,startVector,targetVector,size,speed,color)
+  table.insert(visibleObjects,transitObject)
+end
+
 
 function init()
   simpleScale.setWindow(width,height,windowWidth,windowHeight, {fullscreen = fullscreen, resizable = true});  
   star = CelestialBody(nil,Vector(windowWidth/2,windowHeight/2-12),Vector(0,0),50,0,{1.0,0.3,0.2})
-  planet = CelestialBody(nil,Vector(0,windowHeight/2),Vector(windowWidth, 0),2,50,{0,0,0.08})
+  for i=1,#TransitImages do
+    createTransitObject(i)
+  end
+  --planet = CelestialBody(nil,Vector(0,windowHeight/2),Vector(windowWidth, 0),2,50,{0,0,0.08})
   starbg = Starfield(0.5,windowWidth,windowHeight,1)
   table.insert(visibleObjects,star)
   table.insert(visibleObjects,planet)

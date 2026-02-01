@@ -14,7 +14,7 @@ end
 
 function telescope:draw()
   simpleScale.set()
-  lg.setBackgroundColor(0,0,0.08)
+  lg.setBackgroundColor(0,0,0)
   starbg:draw()
   for _,obj in ipairs(visibleObjects) do
     obj:draw()

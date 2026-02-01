@@ -15,7 +15,7 @@ function Starfield:generate_star_field()
     for x =  -50, self.size_x + 50 , 50 do
         for y = -50, self.size_y + 50, 50 do
             self.seed_radius = love.math.random(self.seed +x/self.size_x + y/self.size_y,1)
-            
+      
             local color = { love.math.random(0.5,1.0 ), love.math.random(0.5,1.0),love.math.random(0.5,1.0), love.math.random(0.5,1.0)}
             table.insert(self.stars, {x = x + love.math.random(x), y = y + love.math.random(y),color=color})
         end
