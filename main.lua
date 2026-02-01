@@ -24,7 +24,7 @@ local planet
 local planet2
 local starbg
 
-simulationSpeedMultiplier = 0.05
+simulationSpeedMultiplier = 0.5
 Starfield_bg = Starfield
 
 function init()
@@ -61,8 +61,8 @@ function love.resize()
 end
 
 function CelestialBodyMovements(dt)
-  planet:transit(Vector(windowWidth, 245) ,-1, dt * simulationSpeedMultiplier)
-  planet2:transit(Vector(windowWidth,-15),-0.4,dt * simulationSpeedMultiplier)
+  planet:transit(Vector(windowWidth, 245) ,400, dt * simulationSpeedMultiplier)
+  planet2:transit(Vector(windowWidth,-15),460,dt * simulationSpeedMultiplier)
 end
 
 
