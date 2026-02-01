@@ -24,14 +24,14 @@ local planet
 local planet2
 local starbg
 
-simulationSpeedMultiplier = 0.5
+simulationSpeedMultiplier = 0.05
 Starfield_bg = Starfield
 
 function init()
   simpleScale.setWindow(width,height,windowWidth,widthHeight, {fullscreen = fullscreen, resizable = true});  
-  star = CelestialBody(Vector(windowWidth/2,widthHeight/2),250,{1,1,1})
-  planet = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0})
-  planet2 = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0})
+  star = CelestialBody(Vector(windowWidth/2,widthHeight/2),250,{1.0,0.8,0.2})
+  planet = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0.08})
+  planet2 = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0.08})
   starbg = Starfield(0.5,windowWidth,widthHeight,1)
   table.insert(visibleObjects,starbg)
   table.insert(visibleObjects,star)

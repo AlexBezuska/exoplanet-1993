@@ -29,6 +29,8 @@ function celestial_body:transit(target, transit_speed, dt)
          self.pos.y < 0 or self.pos.y > widthHeight then
           self.pos.x = self.start.x
           self.pos.y = self.start.y
+           dir.x = 0
+           dir.y = 0
      end
      print(self.pos)
 end
