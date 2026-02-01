@@ -4,14 +4,14 @@ computerClockFont = lg.newFont("fonts/FiraCode-Regular.ttf", 15)
 
 function computer:init()
   bezel = lg.newImage("images/screen-bezel.png")
-  iconPhotosImage = lg.newImage("images/icon-photos.png")
+  --iconPhotosImage = lg.newImage("images/icon-photos.png")
   iconEmailImage = lg.newImage("images/icon-email.png")
   iconTelescopeImage = lg.newImage("images/icon-photos.png")
   iconTrashImage = lg.newImage("images/icon-trash.png")
 
 
   self.telescopeClick = ClickableObject(92, 300, 70, 70)
-  self.photosClick = ClickableObject(88, 100, 70, 70)
+  --self.photosClick = ClickableObject(88, 100, 70, 70)
   self.emailClick = ClickableObject(85, 200, 70, 70 )
   self.trashClick = ClickableObject(102, 400, 70, 70)
   self.backButton = ClickableObject(25, 500, 70,70)
@@ -34,7 +34,7 @@ function computer:update(dt)
   local mousepointy = love.mouse.getY()
 
   Telescope = self.telescopeClick:update(mousepointx, mousepointy)
-  Photos = self.photosClick:update(mousepointx, mousepointy)
+  --Photos = self.photosClick:update(mousepointx, mousepointy)
   Email = self.emailClick:update(mousepointx, mousepointy)
   Trash = self.trashClick:update(mousepointx, mousepointy)
 
@@ -72,7 +72,7 @@ function computer:draw()
   lg.draw(bezel, 0, 0)
 
 
-  drawDesktopIcon(iconPhotosImage, 88, 100, "Photos")
+ -- drawDesktopIcon(iconPhotosImage, 88, 100, "Photos")
   drawDesktopIcon(iconEmailImage, 85, 200, "eMail")
   drawDesktopIcon(iconTelescopeImage, 92, 300, "Telescope-view")
   drawDesktopIcon(iconTrashImage, 102, 400, "Trash")

@@ -32,7 +32,7 @@ local emails = {
         sender = "Frances Carter",
         recipient = "Jesse Wright",
         subject = "Subject: Strange Occultation of Alpha Centauri",
-        body = "Hello fellow stargazer!\nI'm out in Alice Springs and we noticed some very weird readings from Alpha Centauri last night. It seems like you're in a prime spot to get a view of it. Do you mind taking a look? We could really use a hand validating what we saw. It shook things up here pretty fierce.\n-Dr. Frances Carter",
+        body = "Hello fellow stargazer!\nI'm out in Alice Springs and we noticed some very weird readings from Alpha Centauri last night. It seems like you're in a prime spot to get a view of it. Do you mind taking a look? I already sent the adjustments to your telescope so it will be pointed at the correct coordinates for Alpha Centauri now. We could really use a hand validating what we saw. It shook things up here pretty fierce.\n-Dr. Frances Carter",
     },
     email5 = {
         timestamp = 0,

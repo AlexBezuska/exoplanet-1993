@@ -102,6 +102,16 @@ function love.update(dt)
 		love.event.quit()
 	end
 
+  -- unlock a new email every 60 seconds
+  Timer = (Timer or 0) + dt
+  local unlockInterval = (email and email.getUnlockIntervalSeconds and email:getUnlockIntervalSeconds()) or 60
+  while Timer >= unlockInterval do
+    Timer = Timer - unlockInterval
+    if email and email.unlockNextEmail then
+      email:unlockNextEmail()
+    end
+  end
+
 end
 
 function love.resize()
