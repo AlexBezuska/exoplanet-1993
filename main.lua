@@ -18,6 +18,9 @@ height = 600
 windowWidth = 800
 windowHeight = 600
 
+date1993 = ""
+time1993 = ""
+
 
 desktopPurple = {130/255,53/255,109/255}
 

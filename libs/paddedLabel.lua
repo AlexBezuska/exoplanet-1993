@@ -1,7 +1,7 @@
-local function drawPaddedLabel(text, centerX, topY, paddingX, paddingY, opts)
-  opts = opts or {}
-  local gfx = opts.lg or _G.lg
-  local font = opts.font or gfx.getFont()
+local function drawPaddedLabel(text, centerX, topY, paddingX, paddingY, options)
+  options = options or {}
+  local gfx = options.lg or _G.lg
+  local font = options.font or gfx.getFont()
 
   local oldR, oldG, oldB, oldA = gfx.getColor()
   local oldFont = gfx.getFont()
@@ -10,9 +10,9 @@ local function drawPaddedLabel(text, centerX, topY, paddingX, paddingY, opts)
     gfx.setFont(font)
   end
 
-  paddingX = paddingX or opts.paddingX or 4
-  paddingY = paddingY or opts.paddingY or 2
-  local minWidth = opts.minWidth or 0
+  paddingX = paddingX or options.paddingX or 4
+  paddingY = paddingY or options.paddingY or 2
+  local minWidth = options.minWidth or 0
 
   local s = text or ""
   local textW = font:getWidth(s)
@@ -22,11 +22,11 @@ local function drawPaddedLabel(text, centerX, topY, paddingX, paddingY, opts)
   local rectX = centerX - rectW / 2
   local rectY = topY
 
-  local bg = opts.bgColor or { 1, 1, 1, 1 }
+  local bg = options.bgColor or { 1, 1, 1, 1 }
   gfx.setColor(bg)
   gfx.rectangle("fill", rectX, rectY, rectW, rectH)
 
-  local tc = opts.textColor or { 0, 0, 0, 1 }
+  local tc = options.textColor or { 0, 0, 0, 1 }
   gfx.setColor(tc)
   local textX = rectX + (rectW - textW) / 2
   local textY = rectY + paddingY

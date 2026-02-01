@@ -25,6 +25,8 @@ function computer:enter()
 end
 
 function computer:update(dt)
+  date1993 = os.date("1993/%m/%d")
+  time1993 = os.date("%H:%M:%S")
   local mousepointx = love.mouse.getX()
   local mousepointy = love.mouse.getY()
 
