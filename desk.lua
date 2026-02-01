@@ -49,13 +49,13 @@ function desk:draw()
 
   lg.setColor(1,1,1)
   lg.draw( deskViewImage, 0,0)
-  lg.setColor(1,0,0)
+  lg.setColor(1,1,1)
 
-  -- lg.rectangle("fill",self.lightSwitchPos.x,self.lightSwitchPos.y,50,50)
+
   lg.draw( lightSwitchOn, self.lightSwitchPos.x,self.lightSwitchPos.y)
 
   lg.setColor(1,1,1)
-  -- lg.print("I am computer",100,100)
+
   if not self.lightOn then
   lg.setColor(0,0,0.1,0.7)
   lg.rectangle( "fill", 0, 0, windowWidth, windowHeight)

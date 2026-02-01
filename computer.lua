@@ -10,11 +10,11 @@ function computer:init()
   iconTrashImage = lg.newImage("images/icon-trash.png")
 
 
-  self.telescopeClick = ClickableObject(92 - 70, 300 - 70, 70 * 2, 70 * 2)
-  self.photosClick = ClickableObject(88 - 70, 100 - 70, 70 * 2, 70 * 2)
-  self.emailClick = ClickableObject(85 - 70, 200 - 70, 70 * 2, 70 * 2)
-  self.trashClick = ClickableObject(102 - 70, 400 - 70, 70 * 2, 70 * 2)
-  self.monitorToggle = ClickableObject(25, 500, 70,70)
+  self.telescopeClick = ClickableObject(92, 300, 70, 70)
+  self.photosClick = ClickableObject(88, 100, 70, 70)
+  self.emailClick = ClickableObject(85, 200, 70, 70 )
+  self.trashClick = ClickableObject(102, 400, 70, 70)
+  self.backButton = ClickableObject(25, 500, 70,70)
   Telescope = false
   Photos = false
   Email = false
@@ -31,23 +31,12 @@ function computer:update(dt)
   time1993 = os.date("%H:%M:%S")
   local mousepointx = love.mouse.getX()
   local mousepointy = love.mouse.getY()
-<<<<<<< HEAD
-
-
-=======
-  
- --if Monitor then
->>>>>>> b3d3503 (text file edits)
   Telescope = self.telescopeClick:update(mousepointx, mousepointy)
   Photos = self.photosClick:update(mousepointx, mousepointy)
   Email = self.emailClick:update(mousepointx, mousepointy)
   Trash = self.trashClick:update(mousepointx, mousepointy)
-<<<<<<< HEAD
 
-=======
- --end
->>>>>>> b3d3503 (text file edits)
-  --icons now work
+
 
   if Telescope then
     Gamestate.switch(telescope)
@@ -59,9 +48,8 @@ function computer:update(dt)
     --Gamestate.push(Trash)
   end
 
-  if self.monitorToggle:update() then
+  if self.backButton:update() then
     Gamestate.switch(desk)
-    print("Hello")
   end
 end
 
@@ -84,33 +72,19 @@ function computer:draw()
   lg.draw(bezel, 0, 0)
 
 
-
-  --  This is the screen space we have to work with
-  -- screenSpace = {0.5,0.5,0.5}
-  -- lg.setColor(screenSpace)
-  -- lg.rectangle( "line", 80, 60, 640, 465)
-
   drawDesktopIcon(iconPhotosImage, 88, 100, "Photos")
   drawDesktopIcon(iconEmailImage, 85, 200, "eMail")
   drawDesktopIcon(iconTelescopeImage, 92, 300, "Telescope-view")
   drawDesktopIcon(iconTrashImage, 102, 400, "Trash")
-  
-  lg.setColor(0, 0, 0)
- 
-  lg.setColor(1, 0, 0)
-  lg.rectangle("fill", 25, 500, 70, 70)
-  
-  lg.setColor(0,0,0)
-  if not Monitor then
-  --lg.rectangle("fill", 50, 25, windowWidth - 100, windowHeight - 50)
-  end
-  lg.setColor(1,0,0)
-  lg.rectangle("fill", 25, 500, 70,70)
-  
-  lg.rectangle("line",self.telescopeClick.x,self.telescopeClick.y,self.telescopeClick.width,self.telescopeClick.height)
-  lg.rectangle("line",self.photosClick.x,self.photosClick.y,self.photosClick.width,self.photosClick.height)
-  lg.rectangle("line",self.emailClick.x,self.emailClick.y,self.emailClick.width,self.emailClick.height)
-  lg.rectangle("line",self.trashClick.x,self.trashClick.y,self.trashClick.width,self.trashClick.height)
+
+  -- lg.rectangle("line",self.telescopeClick.x,self.telescopeClick.y,self.telescopeClick.width,self.telescopeClick.height)
+  -- lg.rectangle("line",self.photosClick.x,self.photosClick.y,self.photosClick.width,self.photosClick.height)
+  -- lg.rectangle("line",self.emailClick.x,self.emailClick.y,self.emailClick.width,self.emailClick.height)
+  -- lg.rectangle("line",self.trashClick.x,self.trashClick.y,self.trashClick.width,self.trashClick.height)
+
+  lg.setColor(1,1,1)
+  lg.draw( backButtonImage, 25, 500)
+
 
   simpleScale.unSet()
 end

@@ -7,6 +7,7 @@ RotateByCenter = require "libs.rotateByCenter"
 drawPaddedLabel = require "libs.paddedLabel"
 
 ClickableObject = require "libs.clickableObject"
+backButtonImage = lg.newImage("images/back-button.png")
 
 lg.setDefaultFilter("nearest", "nearest")
 random = love.math.random
