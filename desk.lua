@@ -1,4 +1,5 @@
 local bg_audio = love.audio.newSource('sfx/bg-sfx-final.wav', 'static')
+bg_audio:setVolume(0.5)
 
 
 
