@@ -82,7 +82,7 @@ function love.keypressed(key)
     Gamestate.switch(telescope)
   elseif key == "5" then
     Gamestate.switch(archive)
-  elseif key == "home" then
+  elseif key == "home" or "0" then
     Gamestate.switch(titlescreen)
   end
 end
