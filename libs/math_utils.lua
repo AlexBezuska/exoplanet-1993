@@ -16,11 +16,20 @@ function wrap_vector(value, max_val,start_val)
     
         vector.x = start_val.x
    
-elseif vector.y > max_val.y then
+    else if vector.y > max_val.y then
     
         vector.y =start_val.y
+   
+    elseif vector.x < start_val.x then
+    
+        vector.x = max_val.x
+    
+    if vector.y < start_val.y then
+    
+        vector.y =max_val.y 
     end
-  
+end
+end
    
     return vector
 end

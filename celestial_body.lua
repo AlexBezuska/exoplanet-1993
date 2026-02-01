@@ -13,20 +13,19 @@ celestial_body = Class {}
 
    function  celestial_body:transit(target, transit_speed, dt)
         -- lerp to target(x,y) based speed
-        local dir = self.start - target 
+        local dir = -target 
         local length = (dir.x^2 + dir.y ^ 2)
-        dir = dir:rotated(math.rad(math.atan2(dir.y/length,dir.x/length)))
-        self.pos.x = lerp(self.pos.x, dir.x, transit_speed * dt * 0.01)
-        self.pos.y =  lerp(self.pos.y,dir.y, transit_speed * dt * 0.01)
-     
+       
+        self.pos.x = self.pos.x +dir.x * transit_speed * dt
+        self.pos.y = self.pos.y + dir.y * transit_speed * dt 
 
         --simple wrap 
     
-          self.pos = wrap_vector(self.pos,Vector(windowWidth,widthHeight),self.start)
+     self.pos = wrap_vector(self.pos,Vector(windowWidth,widthHeight),self.start)
         
         
 
-          print(dir)
+          print(self.pos)
     end;
 
      function celestial_body: reset()
