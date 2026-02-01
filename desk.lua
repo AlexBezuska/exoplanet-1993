@@ -1,9 +1,14 @@
+local bg_audio = love.audio.newSource('sfx/bg-sfx-final.wav', 'static')
+
 desk = {}
 
 function desk:init()
   
   deskViewImage = lg.newImage("images/desk-view.png")
   iconPhotosImage = lg.newImage("images/icon-photos.png")
+
+  bg_audio:setLooping(true)
+  bg_audio:play()
 end
 
 function desk:enter()
