@@ -13,8 +13,7 @@ end
 
 function email:draw()
   simpleScale.set()
-  lg.setColor(1,1,1)
-  lg.print("email",100,100)
+  
   --email window bar 
   lg.setColor(0.05, 0.2, 0.8)
   lg.rectangle("fill", 180, 60, 530, 30)
@@ -24,6 +23,9 @@ function email:draw()
   --email window body
   lg.setColor(1,1,1)
   lg.rectangle("fill", 180, 90, 530, 430)
+  --window bar and close button text
+  lg.print("eMail", 185, 65, 0, 1.25, 1.25)
+  lg.print("X", 688.5, 63.5, 0, 1.5, 1.5)
 
   simpleScale.unSet()
 end
