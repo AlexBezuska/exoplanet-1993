@@ -21,18 +21,22 @@ require "telescope"
 CelestialBody = require "celestial_body"
 Starfield = require "starfield"
 visibleObjects = {}
+transitObjectImages = {
+  
+  }
+
 local star
 local planet
 local planet2
 
 
-simulationSpeedMultiplier = 0.05
+simulationSpeedMultiplier = 0.1
 Starfield_bg = Starfield
 
 function init()
   simpleScale.setWindow(width,height,windowWidth,windowHeight, {fullscreen = fullscreen, resizable = true});  
-  star = CelestialBody(Vector(windowWidth/2,windowHeight/2-12),Vector(0,0),200,0,{1.0,0.3,0.2})
-  planet = CelestialBody(Vector(0,windowHeight/2),Vector(windowWidth, 0),50,1600,{0,0,0.08})
+  star = CelestialBody(nil,Vector(windowWidth/2,windowHeight/2-12),Vector(0,0),50,0,{1.0,0.3,0.2})
+  planet = CelestialBody(nil,Vector(0,windowHeight/2),Vector(windowWidth, 0),2,50,{0,0,0.08})
   starbg = Starfield(0.5,windowWidth,windowHeight,1)
   table.insert(visibleObjects,star)
   table.insert(visibleObjects,planet)

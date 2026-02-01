@@ -2,15 +2,18 @@ Class = require 'libs.class'
 require "libs.math_utils"
 Vector = require 'libs.vector'
 celestial_body = Class {}
+local scaleMultiplier = 0.001
 
-function celestial_body:init(pos, target,body_radius, speed,color)
-     self.pos = Vector(pos.x, pos.y)
-     self.target = target
-     self.start = Vector(pos.x, pos.y)
-     self.radius = body_radius
-     self.speed = speed
-     self.color = color
-end;
+function celestial_body:init(img,pos, target,body_radius, speed,color)
+  if img then self.img = img end
+  self.pos = Vector(pos.x, pos.y)
+  self.target = target
+  self.start = Vector(pos.x, pos.y)
+  self.scale = 1
+  self.radius = body_radius
+  self.speed = speed
+  self.color = color
+end
 
 function celestial_body:transit(dt)
      local dir = self.target
@@ -36,13 +39,16 @@ end
 function celestial_body:reset()
      self.pos.x = 0
      self.pos.y = 0
-end;
+end
 
 function celestial_body:draw()
-     --lg.setColor(self.color)
-     --lg.circle("fill",self.x,self.y,self.radius * 1.1)
-     lg.setColor(self.color)
-     lg.circle("fill", self.pos.x, self.pos.y, self.radius)
-end;
+  lg.setColor(self.color)
+  self.scale = self.scale + scaleMultiplier
+  if self.img then
+    lg.draw(self.img,self.pos.x,self.pos.y,0,self.scale,self.scale,self.img:getWidth()/2,self.img:getHeight()/2)
+  else
+    lg.circle("fill", self.pos.x, self.pos.y, self.radius+(self.scale))
+  end
+end
 
 return celestial_body
