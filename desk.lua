@@ -22,7 +22,8 @@ function desk:enter()
 end
 
 function desk:update(dt)
-  if self.computerClick:update() then
+  
+  if self.lightOn and self.computerClick:update() then
     Gamestate.switch(computer)
   end
   if self.lightSwitch:update() then
