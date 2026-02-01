@@ -8,8 +8,11 @@ desk = {}
 function desk:init()
   
   deskViewImage = lg.newImage("images/desk-view.png")
-  iconPhotosImage = lg.newImage("images/icon-photos.png")
-  self.lightSwitchPos = Vector(12,100)
+ 
+
+  lightSwitchOff = lg.newImage("images/light-switch-OFF.png")
+  lightSwitchOn = lg.newImage("images/light-switch-ON.png")
+  self.lightSwitchPos = Vector(30,200)
   self.computerClick = ClickableObject(150, 250, 350, 300)
   self.lightSwitch = ClickableObject(self.lightSwitchPos.x,self.lightSwitchPos.y,50,50)
   self.lightOn = false
@@ -47,13 +50,17 @@ function desk:draw()
   lg.setColor(1,1,1)
   lg.draw( deskViewImage, 0,0)
   lg.setColor(1,0,0)
-  lg.rectangle("fill",self.lightSwitchPos.x,self.lightSwitchPos.y,50,50)
+
+  -- lg.rectangle("fill",self.lightSwitchPos.x,self.lightSwitchPos.y,50,50)
+  lg.draw( lightSwitchOn, self.lightSwitchPos.x,self.lightSwitchPos.y)
 
   lg.setColor(1,1,1)
-  lg.print("I am computer",100,100)
+  -- lg.print("I am computer",100,100)
   if not self.lightOn then
   lg.setColor(0,0,0.1,0.7)
   lg.rectangle( "fill", 0, 0, windowWidth, windowHeight)
+  lg.setColor(1,1,1)
+  lg.draw( lightSwitchOff, self.lightSwitchPos.x,self.lightSwitchPos.y)
   end
 
   simpleScale.unSet()
