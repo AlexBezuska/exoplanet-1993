@@ -58,13 +58,12 @@ TransitImages = {
   lg.newImage("images/realtime/transit-object-stick1.png"),
   }
   
-function createTransitObject(index)
+function createTransitObject(index,speed)
   local img = TransitImages[index]
   local startVector = Vector(0,windowHeight/2)
   local targetVector = Vector(windowWidth, 0)
   local size = random(1,5)
-  local speed = random(1000,2000)
-  local color = {0,0,0.08}
+  local color = {0,0,0}
   local transitObject = CelestialBody(img,startVector,targetVector,size,speed,color)
   table.insert(visibleObjects,transitObject)
 end
@@ -73,9 +72,10 @@ end
 function init()
   simpleScale.setWindow(width,height,windowWidth,windowHeight, {fullscreen = fullscreen, resizable = true});  
   telescope.star = CelestialBody(nil,Vector(windowWidth/2,windowHeight/2-12),Vector(0,0),50,0,{1.0,0.3,0.2})
-  for i=1,#TransitImages do
-    createTransitObject(i)
-  end
+  --[[for i=1,#TransitImages do
+    createTransitObject(i,i*3)
+  end]]--
+  
   --planet = CelestialBody(nil,Vector(0,windowHeight/2),Vector(windowWidth, 0),2,50,{0,0,0.08})
   starbg = Starfield(0.5,windowWidth,windowHeight,1)
   --table.insert(visibleObjects,star)
