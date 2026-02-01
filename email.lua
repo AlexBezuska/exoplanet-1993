@@ -10,6 +10,7 @@ function email:init()
  
 
   self.ExitEmail =   ClickableObject( 688.5, 63.5,15,15)
+  self.backButton = ClickableObject(25, 500, 70,70)
 end
 
 function email:enter()
@@ -69,6 +70,10 @@ function email:draw()
   lg.setColor(1, 1, 1)
   lg.print("eMail", 185, 65, 0, 1.25, 1.25)
   lg.print("X", 688.5, 63.5, 0, 1.5, 1.5)
+
+
+  lg.setColor(1,1,1)
+  lg.draw( backButtonImage, 25, 500)
 
   simpleScale.unSet()
 end
