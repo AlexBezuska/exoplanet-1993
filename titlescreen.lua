@@ -5,6 +5,7 @@ local TypewriterText = require "libs.typewriterText"
 
 
 function titlescreen:init()
+    telescopeImage = lg.newImage("images/title-screen-telescope.png")
 end
 
 function titlescreen:enter()
@@ -19,6 +20,8 @@ function titlescreen:draw()
     simpleScale.set()
     lg.setBackgroundColor(0,0,0.08)
     starbg:draw()
+    lg.setColor(1, 1, 1)
+    lg.draw(telescopeImage, 0, 0)
      drawLogo(100)
     simpleScale.unSet()
 end
