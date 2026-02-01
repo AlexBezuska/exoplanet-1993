@@ -21,7 +21,7 @@ function telescope:draw()
   simpleScale.set()
 
   --  Clestial objects stuff
-  lg.setBackgroundColor(0, 0, 1)
+  lg.setBackgroundColor(0, 0, 0)
   starbg:draw()
   telescope.star:draw()
   for _, obj in ipairs(visibleObjects) do

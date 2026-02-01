@@ -28,7 +28,7 @@ function celestial_body:transit(dt)
      self.pos.x = self.pos.x + (dir.x * self.speed) * dt
      self.pos.y = self.pos.y + (dir.y * self.speed) * dt
 
-
+print(self.pos.x)
      if self.pos.x < 0 or self.pos.x > windowWidth or
          self.pos.y < 0 or self.pos.y > windowHeight then
           self.isdone = true

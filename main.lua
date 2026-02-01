@@ -22,9 +22,7 @@ windowHeight = 600
 date1993 = ""
 time1993 = ""
 
-Timer = 0.0
-NextTime = 0.0
-SpawnRate = 1.5
+timer = 0
 
 desktopPurple = {130/255,53/255,109/255}
 
@@ -41,7 +39,7 @@ visibleObjects = {}
 
 local star
 local planet
- --0.1
+
 simulationSpeedMultiplier = 15.1
 Starfield_bg = Starfield
 TransitImages = {
@@ -63,7 +61,7 @@ TransitImages = {
   }
   
 function createTransitObject()
-  local speed = random(25,15)
+  local speed = random(1,5)
   local img = TransitImages[random(#TransitImages)]
   local startVector = Vector(0,windowHeight/2)
   local targetVector = Vector(windowWidth, 0)
@@ -79,9 +77,7 @@ function init()
   simpleScale.setWindow(width,height,windowWidth,windowHeight, {fullscreen = fullscreen, resizable = true});  
   telescope.star = CelestialBody(nil,Vector(windowWidth/2,windowHeight/2-12),Vector(0,0),50,0,{1.0,0.3,0.2})
   
-
-  print('spawn')
-  createTransitObject()
+  --createTransitObject()
   
   
   --planet = CelestialBody(nil,Vector(0,windowHeight/2),Vector(windowWidth, 0),2,50,{0,0,0.08})
@@ -94,14 +90,12 @@ function love.load()
   Gamestate.registerEvents()
   Gamestate.switch(titlescreen)
 end
-function SpawnByRate (dt,done)
-   if dt > NextTime then
-    NextTime = dt + SpawnRate
-    return true
-  end
-end
+
 function love.update(dt)
   simpleScale.resizeUpdate()
+  
+  timer = timer + 1 * dt
+  
   CelestialBodyMovements(dt)
   
 	if love.keyboard.isDown("escape") then
@@ -117,9 +111,7 @@ end
 
 function CelestialBodyMovements(dt)
   for _,obj in ipairs(visibleObjects) do
-    if obj.isdone and SpawnByRate(love.timer.getDelta()) then
     obj:transit(dt*simulationSpeedMultiplier)
-    end
   end
   --planet:transit(Vector(windowWidth, windowHeight), dt * simulationSpeedMultiplier)
   --planet2:transit(Vector(windowWidth,-15),460,dt * simulationSpeedMultiplier)
