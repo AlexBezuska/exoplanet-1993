@@ -1,4 +1,13 @@
 lg = love.graphics
+
+titleFont = lg.newFont("fonts/LCDM2U.TTF", 40)
+
+defaultFont = lg.newFont("fonts/FiraCode-Regular.ttf", 12)
+RotateByCenter = require "libs.rotateByCenter"
+drawPaddedLabel = require "libs.paddedLabel"
+
+ClickableObject = require "libs.clickableObject"
+
 lg.setDefaultFilter("nearest", "nearest")
 Gamestate = require "libs.gamestate"
 require "libs.simpleScale"
@@ -45,7 +54,7 @@ end
 function love.load()
   init()
   Gamestate.registerEvents()
-  Gamestate.switch(telescope)
+  Gamestate.switch(titlescreen)
 end
 
 function love.update(dt)

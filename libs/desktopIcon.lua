@@ -1,3 +1,5 @@
+
+
 function drawDesktopIcon(image, x, y, filename)
   local iconSize = 48
 
@@ -23,17 +25,9 @@ function drawDesktopIcon(image, x, y, filename)
   end
 
   local text = filename or ""
-  local textW = font:getWidth(text)
-  local rectW = math.max(iconSize, textW + 4 * 2)
-  local rectH = font:getHeight() + 2 * 2
-  local rectX = x + (iconSize - rectW) / 2
-  local rectY = y + iconSize + 4
-
-  lg.setColor(1, 1, 1, 1)
-  lg.rectangle("fill", rectX, rectY, rectW, rectH)
-
-  lg.setColor(0, 0, 0, 1)
-  lg.print(text, rectX + (rectW - textW) / 2, rectY + 4)
+  local centerX = x + iconSize / 2
+  local topY = y + iconSize + 4
+  drawPaddedLabel(text, centerX, topY, 4, 2, { font = font, minWidth = iconSize })
 
   lg.setFont(oldFont)
   lg.setColor(oldR, oldG, oldB, oldA)

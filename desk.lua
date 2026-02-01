@@ -1,11 +1,15 @@
 local bg_audio = love.audio.newSource('sfx/bg-sfx-final.wav', 'static')
 
+
+
 desk = {}
 
 function desk:init()
   
   deskViewImage = lg.newImage("images/desk-view.png")
   iconPhotosImage = lg.newImage("images/icon-photos.png")
+
+  self.computerClick = ClickableObject(150, 250, 350, 300)
 
   bg_audio:setLooping(true)
   bg_audio:play()
@@ -16,7 +20,9 @@ function desk:enter()
 end
 
 function desk:update(dt)
- 
+  if self.computerClick:update() then
+    Gamestate.switch(computer)
+  end
 end
 
 function desk:draw()

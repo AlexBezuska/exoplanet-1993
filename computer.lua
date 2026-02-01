@@ -8,6 +8,12 @@ function computer:init()
   iconEmailImage = lg.newImage("images/icon-email.png")
   iconTelescopeImage = lg.newImage("images/icon-photos.png")
   iconTrashImage = lg.newImage("images/icon-trash.png")
+
+  self.telescopeClick = ClickableObject(92 - 70, 300 - 70, 70 * 2, 70 * 2)
+  self.photosClick = ClickableObject(88 - 70, 100 - 70, 70 * 2, 70 * 2)
+  self.emailClick = ClickableObject(85 - 70, 200 - 70, 70 * 2, 70 * 2)
+  self.trashClick = ClickableObject(102 - 70, 400 - 70, 70 * 2, 70 * 2)
+
   Telescope = false
   Photos = false
   Email = false
@@ -22,15 +28,10 @@ function computer:update(dt)
   local mousepointx = love.mouse.getX()
   local mousepointy = love.mouse.getY()
 
-  Mousepos = Vector(mousepointx, mousepointy)
-  local teledir = Vector(92, 300) - Mousepos
-  local photosdir = Vector(88, 100) - Mousepos
-  local emaildir = Vector(85, 200) - Mousepos
-  local trashdir = Vector(102, 400) - Mousepos
-  Telescope = love.mouse.isDown(1) and math.sqrt(teledir.x ^ 2 + teledir.y ^ 2) < 70
-  Photos =  love.mouse.isDown(1) and math.sqrt(photosdir.x ^ 2 + photosdir.y ^ 2) < 70
-  Email = love.mouse.isDown(1) and  math.sqrt(emaildir.x ^ 2 + emaildir.y ^ 2) < 70
-  Trash = love.mouse.isDown(1) and  math.sqrt(trashdir.x ^ 2 + trashdir.y ^ 2) < 70
+  Telescope = self.telescopeClick:update(mousepointx, mousepointy)
+  Photos = self.photosClick:update(mousepointx, mousepointy)
+  Email = self.emailClick:update(mousepointx, mousepointy)
+  Trash = self.trashClick:update(mousepointx, mousepointy)
   --icons now work
   print(Trash)
   if Telescope then
