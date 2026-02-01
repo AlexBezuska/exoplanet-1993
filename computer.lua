@@ -82,15 +82,15 @@ function computer:draw()
   
   lg.setColor(0, 0, 0)
  
-  lg.setColor(1, 0, 0)
-  lg.rectangle("fill", 25, 500, 70, 70)
+  
   
   lg.setColor(0,0,0)
   if not Monitor then
   --lg.rectangle("fill", 50, 25, windowWidth - 100, windowHeight - 50)
   end
-  lg.setColor(1,0,0)
-  lg.rectangle("fill", 25, 500, 70,70)
+    --  Back button stuff
+  lg.setColor(1, 1, 1)
+  lg.draw(backButtonImage, 25, 500)
   
   --[[
   lg.rectangle("line",self.telescopeClick.x,self.telescopeClick.y,self.telescopeClick.width,self.telescopeClick.height)
