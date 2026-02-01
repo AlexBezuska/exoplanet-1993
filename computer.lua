@@ -31,13 +31,22 @@ function computer:update(dt)
   time1993 = os.date("%H:%M:%S")
   local mousepointx = love.mouse.getX()
   local mousepointy = love.mouse.getY()
+<<<<<<< HEAD
 
 
+=======
+  
+ --if Monitor then
+>>>>>>> b3d3503 (text file edits)
   Telescope = self.telescopeClick:update(mousepointx, mousepointy)
   Photos = self.photosClick:update(mousepointx, mousepointy)
   Email = self.emailClick:update(mousepointx, mousepointy)
   Trash = self.trashClick:update(mousepointx, mousepointy)
+<<<<<<< HEAD
 
+=======
+ --end
+>>>>>>> b3d3503 (text file edits)
   --icons now work
 
   if Telescope then
@@ -85,10 +94,24 @@ function computer:draw()
   drawDesktopIcon(iconEmailImage, 85, 200, "eMail")
   drawDesktopIcon(iconTelescopeImage, 92, 300, "Telescope-view")
   drawDesktopIcon(iconTrashImage, 102, 400, "Trash")
+  
   lg.setColor(0, 0, 0)
  
   lg.setColor(1, 0, 0)
   lg.rectangle("fill", 25, 500, 70, 70)
+  
+  lg.setColor(0,0,0)
+  if not Monitor then
+  --lg.rectangle("fill", 50, 25, windowWidth - 100, windowHeight - 50)
+  end
+  lg.setColor(1,0,0)
+  lg.rectangle("fill", 25, 500, 70,70)
+  
+  lg.rectangle("line",self.telescopeClick.x,self.telescopeClick.y,self.telescopeClick.width,self.telescopeClick.height)
+  lg.rectangle("line",self.photosClick.x,self.photosClick.y,self.photosClick.width,self.photosClick.height)
+  lg.rectangle("line",self.emailClick.x,self.emailClick.y,self.emailClick.width,self.emailClick.height)
+  lg.rectangle("line",self.trashClick.x,self.trashClick.y,self.trashClick.width,self.trashClick.height)
+
   simpleScale.unSet()
 end
 
