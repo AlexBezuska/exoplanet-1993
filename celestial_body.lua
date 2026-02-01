@@ -3,7 +3,7 @@ require "libs.math_utils"
 Vector = require 'libs.vector'
 celestial_body = Class{}
 
-<<<<<<< Updated upstream
+--[[<<<<<<< Updated upstream
 function celestial_body:init(pos, body_radius, color)
      self.pos = Vector(pos.x, pos.y)
      self.start = Vector(pos.x, pos.y)
@@ -25,7 +25,7 @@ function celestial_body:transit(target, transit_speed, dt)
      self.pos.x = self.pos.x + (dir.x * transit_speed) * dt
      self.pos.y = self.pos.y + (dir.y * transit_speed) * dt
 =======
-function celestial_body:init(line,body_radius,speed,color)
+--]]function celestial_body:init(line,body_radius,speed,color)
   self.line = line
   self.pos = {x=line[1],y=line[2]}
   self.radius = body_radius
@@ -74,18 +74,9 @@ function celestial_body: draw()
   lg.circle("fill", self.pos.x,  self.pos.y, self.radius)
 end
   
->>>>>>> Stashed changes
+-->>>>>>> Stashed changes
+--]]
 
-
-     if self.pos.x < 0 or self.pos.x > windowWidth or
-         self.pos.y < 0 or self.pos.y > widthHeight then
-          self.pos.x = self.start.x
-          self.pos.y = self.start.y
-           dir.x = 0
-           dir.y = 0
-     end
-     print(self.pos)
-end
 
 function celestial_body:reset()
      self.pos.x = 0
