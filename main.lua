@@ -24,6 +24,12 @@ time1993 = ""
 
 timer = 0
 
+-- Transit object spawning over time
+TRANSIT_SPAWN_DURATION_SECONDS = 30 * 60
+TRANSIT_SPAWN_INTERVAL_SECONDS = 60
+transitSpawnElapsed = 0
+transitSpawnAccumulator = 0
+
 desktopPurple = {130/255,53/255,109/255}
 
 require "titlescreen"
@@ -77,7 +83,10 @@ function init()
   simpleScale.setWindow(width,height,windowWidth,windowHeight, {fullscreen = fullscreen, resizable = true});  
   telescope.star = CelestialBody(nil,Vector(windowWidth/2,windowHeight/2-12),Vector(0,0),50,0,{1.0,0.3,0.2})
   
-  --createTransitObject()
+  -- Start with one, then drip-feed more over time.
+  transitSpawnElapsed = 0
+  transitSpawnAccumulator = 0
+  createTransitObject()
   
   
   --planet = CelestialBody(nil,Vector(0,windowHeight/2),Vector(windowWidth, 0),2,50,{0,0,0.08})
@@ -95,6 +104,16 @@ function love.update(dt)
   simpleScale.resizeUpdate()
   
   timer = timer + 1 * dt
+
+  -- Spawn transit objects on a timer for up to 30 minutes.
+  if transitSpawnElapsed < TRANSIT_SPAWN_DURATION_SECONDS then
+    transitSpawnElapsed = transitSpawnElapsed + dt
+    transitSpawnAccumulator = transitSpawnAccumulator + dt
+    while transitSpawnAccumulator >= TRANSIT_SPAWN_INTERVAL_SECONDS and transitSpawnElapsed <= TRANSIT_SPAWN_DURATION_SECONDS do
+      transitSpawnAccumulator = transitSpawnAccumulator - TRANSIT_SPAWN_INTERVAL_SECONDS
+      createTransitObject()
+    end
+  end
   
   CelestialBodyMovements(dt)
   
@@ -142,6 +161,9 @@ function love.keypressed(key)
     Gamestate.switch(telescope)
   elseif key == "5" then
     Gamestate.switch(archive)
+  elseif key == "t" then
+    -- Debug: trigger the next scheduled transit spawn immediately
+    createTransitObject()
   elseif key == "home" or "0" then
     Gamestate.switch(titlescreen)
   end
