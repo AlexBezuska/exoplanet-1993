@@ -32,7 +32,7 @@ function celestial_body:transit(target, transit_speed, dt)
            dir.x = 0
            dir.y = 0
      end
-     print(self.pos)
+     --print(self.pos)
 end
 
 function celestial_body:reset()

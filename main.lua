@@ -24,7 +24,7 @@ visibleObjects = {}
 local star
 local planet
 local planet2
-local starbg
+
 
 simulationSpeedMultiplier = 0.05
 Starfield_bg = Starfield
