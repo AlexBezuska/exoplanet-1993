@@ -19,7 +19,7 @@ function desk:draw()
   lg.setColor(1,1,1)
   lg.print("desk",100,100)
   lg.setColor(130/255,53/255,109/255)
-  lg.rectangle( "fill", 0, 0, windowWidth, widthHeight)
+  lg.rectangle( "fill", 0, 0, windowWidth, windowHeight)
 
   lg.setColor(1,1,1)
   lg.draw( deskViewImage, 0,0)

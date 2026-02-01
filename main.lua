@@ -6,7 +6,7 @@ Vector = require 'libs.vector'
 width = 800
 height = 600
 windowWidth = 800
-widthHeight = 600
+windowHeight = 600
 
 
 desktopPurple = {130/255,53/255,109/255}
@@ -30,21 +30,18 @@ simulationSpeedMultiplier = 0.05
 Starfield_bg = Starfield
 
 function init()
-  simpleScale.setWindow(width,height,windowWidth,widthHeight, {fullscreen = fullscreen, resizable = true});  
-  star = CelestialBody(Vector(windowWidth/2,widthHeight/2),250,{1.0,0.8,0.2})
-  planet = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0.08})
-  planet2 = CelestialBody(Vector(0,widthHeight/2),5,{0,0,0.08})
-  starbg = Starfield(0.5,windowWidth,widthHeight,1)
-  table.insert(visibleObjects,starbg)
+  simpleScale.setWindow(width,height,windowWidth,windowHeight, {fullscreen = fullscreen, resizable = true});  
+  star = CelestialBody(Vector(windowWidth/2,windowHeight/2-12),Vector(0,0),200,0,{1.0,0.3,0.2})
+  planet = CelestialBody(Vector(0,windowHeight/2),Vector(windowWidth, 0),50,1600,{0,0,0.08})
+  starbg = Starfield(0.5,windowWidth,windowHeight,1)
   table.insert(visibleObjects,star)
   table.insert(visibleObjects,planet)
-  table.insert(visibleObjects,planet2)
 end
 
 function love.load()
   init()
   Gamestate.registerEvents()
-  Gamestate.switch(titlescreen)
+  Gamestate.switch(telescope)
 end
 
 function love.update(dt)
@@ -59,12 +56,15 @@ end
 
 function love.resize()
   lg.setColor({0,0,0})
-  lg.rectangle( "fill", 0, 0, windowWidth, widthHeight)
+  lg.rectangle( "fill", 0, 0, windowWidth, windowHeight)
 end
 
 function CelestialBodyMovements(dt)
-  planet:transit(Vector(windowWidth, 245) ,400, dt * simulationSpeedMultiplier)
-  planet2:transit(Vector(windowWidth,-15),460,dt * simulationSpeedMultiplier)
+  for _,obj in ipairs(visibleObjects) do
+    obj:transit(dt*simulationSpeedMultiplier)
+  end
+  --planet:transit(Vector(windowWidth, windowHeight), dt * simulationSpeedMultiplier)
+  --planet2:transit(Vector(windowWidth,-15),460,dt * simulationSpeedMultiplier)
 end
 
 

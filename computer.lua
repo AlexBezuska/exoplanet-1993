@@ -43,7 +43,7 @@ function computer:draw()
   lg.setColor(1, 1, 1)
 
   lg.setColor(desktopPurple)
-  lg.rectangle("fill", 0, 0, windowWidth, widthHeight)
+  lg.rectangle("fill", 0, 0, windowWidth, windowHeight)
 
   lg.setColor(1, 1, 1)
   lg.draw(bezel, 0, 0)
