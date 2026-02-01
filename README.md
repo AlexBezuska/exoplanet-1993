@@ -1,7 +1,7 @@
-# exoplanet-1993
+# Coincidence of Occlusion
 
 
-a game by: Imran Bharadia, Glenn Essex, Wren Slaven, EJ Curtis and fufroom (Alex Bezuska)
+a game by: Imran Bharadia, Glenn Essex, Wren Slaven, EJ Curtis, fufroom (Alex Bezuska), and Aaron Goodwine
 
 
 
