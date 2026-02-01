@@ -1,15 +1,17 @@
 desk = {}
 
 function desk:init()
+  
   deskViewImage = lg.newImage("images/desk-view.png")
   iconPhotosImage = lg.newImage("images/icon-photos.png")
 end
 
 function desk:enter()
-  
+
 end
 
 function desk:update(dt)
+ 
 end
 
 function desk:draw()
