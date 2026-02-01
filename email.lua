@@ -2,7 +2,9 @@ email = {
   emails = require "email_text"
 }
 
-
+function limitToChars(string, limit)
+  return string:sub(1,limit) .. "..."
+end
 
 function email:init()
  
@@ -37,21 +39,32 @@ function email:draw()
   --division lines
   --vertical
   lg.setColor(0, 0, 0)
-  lg.line(330, 90, 330, 520)
-  --horizontal (line every 50px down)
-  lg.line(180, 140, 330, 140)
-  lg.line(180, 185, 330, 185)
-  lg.line(180, 225, 330, 225)
-  lg.line(180, 265, 330, 265)
-  lg.line(180, 305, 330, 305)
-  lg.line(180, 345, 330, 345)
-  lg.line(180, 385, 330, 385)
-  lg.line(180, 425, 330, 425)
-  lg.line(180, 465, 330, 465)
+  lg.line(360, 90, 360, 520)
+  --horizontal (line every 40px down)
+  lg.line(180, 140, 360, 140)
+  lg.line(180, 185, 360, 185)
+  lg.line(180, 225, 360, 225)
+  lg.line(180, 265, 360, 265)
+  lg.line(180, 305, 360, 305)
+  lg.line(180, 345, 360, 345)
+  lg.line(180, 385, 360, 385)
+  lg.line(180, 425, 360, 425)
+  lg.line(180, 465, 360, 465)
   --email text
-  lg.setColor(0, 0, 0)
-  lg.printf(self.emails.email0.sender, 200, 100, 200, "left")
-  lg.printf(self.emails.email0.subject, 200, 115, 200, "left")
+  --limit subject length to 21 chars
+  lg.printf(self.emails.email0.sender, 185, 100, 200, "left")
+  lg.printf(limitToChars(self.emails.email0.subject, 21), 185, 115, 200, "left")
+
+  lg.printf(self.emails.email1.sender, 185, 150, 200, "left")
+  lg.printf(limitToChars(self.emails.email1.subject,21), 185, 165, 200, "left")
+
+  lg.printf(self.emails.email2.sender, 185, 190, 200, "left")
+  lg.printf(limitToChars(self.emails.email2.subject,21), 185, 205, 200, "left")
+
+  lg.printf(self.emails.email3.sender, 185, 230, 200, "left")
+  lg.printf(limitToChars(self.emails.email3.subject, 21), 185, 220, 200, "left")
+
+  
   --window bar and close button text
   lg.setColor(1, 1, 1)
   lg.print("eMail", 185, 65, 0, 1.25, 1.25)
