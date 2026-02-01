@@ -4,12 +4,12 @@ Vector = require 'libs.vector'
 celestial_body = Class {}
 local scaleMultiplier = 0.001
 
-function celestial_body:init(img,pos, target,body_radius, speed,color)
+function celestial_body:init(img,pos,target,body_radius, speed,color)
   if img then self.img = img end
   self.pos = Vector(pos.x, pos.y)
   self.target = target
   self.start = Vector(pos.x, pos.y)
-  self.scale = 1
+  self.scale = .1
   self.radius = body_radius
   self.speed = speed
   self.color = color
