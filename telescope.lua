@@ -12,7 +12,6 @@ function telescope:enter()
 end
 
 function telescope:update(dt)
-
   if self.backButton:update() then
     Gamestate.switch(computer)
   end
@@ -20,6 +19,7 @@ end
 
 function telescope:draw()
   simpleScale.set()
+
   --  Clestial objects stuff
   lg.setBackgroundColor(0, 0, 1)
   starbg:draw()
@@ -28,12 +28,15 @@ function telescope:draw()
     obj:draw()
   end
 
+
   -- Timestamp Stuff
+
   lg.setFont(telescopeTimestampFont)
   date1993 = os.date("1993/%m/%d")
   time1993 = os.date("%H:%M:%S")
   drawPaddedLabel(date1993 .. "\n" .. time1993, 650, 0, 21, 50,
     { bgColor = { 0 / 255, 56 / 255, 255 / 255 }, textColor = { 1, 1, 1 } })
+
 
   --  Telescope status text stuff
   telescopeStatusText =
@@ -42,13 +45,16 @@ function telescope:draw()
   drawPaddedLabel(telescopeStatusText, 220, 290, 21, 50, { bgColor = { 0, 0, 0, 0 }, textColor = { 1, 1, 1 } })
 
   --  Bezel stuff
+
   lg.setColor(1, 1, 1)
   lg.draw(bezel, 0, 0)
   lg.setFont(defaultFont)
 
-  --  Back button stuff 
+
+  --  Back button stuff
   lg.setColor(1, 1, 1)
   lg.draw(backButtonImage, 25, 500)
+
   simpleScale.unSet()
 end
 

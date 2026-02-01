@@ -3,7 +3,7 @@ require "libs.math_utils"
 Vector = require 'libs.vector'
 celestial_body = Class {}
 local scaleMultiplier = 0.001
-
+isdone = false
 function celestial_body:init(img,pos,target,body_radius, speed,color)
   if img then self.img = img end
   self.pos = Vector(pos.x, pos.y)
@@ -13,8 +13,11 @@ function celestial_body:init(img,pos,target,body_radius, speed,color)
   self.radius = body_radius
   self.speed = speed
   self.color = color
+  self.isdone = false
 end
-
+function GetDone(self)
+  return self.isdone
+end
 function celestial_body:transit(dt)
      local dir = self.target
      local len = math.sqrt(dir.x ^ 2 + dir.y ^ 2)
@@ -28,10 +31,12 @@ function celestial_body:transit(dt)
 
      if self.pos.x < 0 or self.pos.x > windowWidth or
          self.pos.y < 0 or self.pos.y > windowHeight then
-          self.pos.x = self.start.x
-          self.pos.y = self.start.y
-           dir.x = self.target.x
-           dir.y = self.target.y
+          self.isdone = true
+          
+         --- self.pos.x = self.start.x
+          ---self.pos.y = self.start.y
+           ---dir.x = self.target.x
+           ---dir.y = self.target.y
      end
      --print(self.pos)
 end
@@ -50,5 +55,7 @@ function celestial_body:draw()
     lg.circle("fill", self.pos.x, self.pos.y, self.radius+(self.scale))
   end
 end
-
+function GetCelestialBodyPos (self)
+  return self.pos
+end
 return celestial_body
