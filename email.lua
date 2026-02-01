@@ -1,7 +1,9 @@
 email = {}
 
 function email:init()
+ 
 
+  self.ExitEmail =   ClickableObject( 688.5, 63.5,15,15)
 end
 
 function email:enter()
@@ -9,6 +11,9 @@ function email:enter()
 end
 
 function email:update(dt)
+  if self.ExitEmail:update() then
+    Gamestate.switch(computer)
+  end
 end
 
 function email:draw()
